@@ -8,10 +8,13 @@
   ;;  - Stores list of strings to `src-lines`
   (define src-lines (port->lines port))
 
-  ;; Returns code describing a module (expression)
+  ;; Returns syntax object describing a module (expression)
   ;;  - Module name is lucy
   ;;  - Uses expander from `br` language (expressions)
   ;;  - Evaluates the expression `42`
+  ;; Converted into datum using '
+  ;; Converted into syntax object using datum-syntax
+  ;; Passed program context #f (placeholder)
   (datum->syntax #f '(module lucy br
                        42)))
 ;; Makes the read-syntax func publicly available
