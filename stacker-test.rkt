@@ -1,6 +1,5 @@
+;; Runs a number, string, boolean
 #lang reader "stacker.rkt"
-
-;; Dummy arguments; Replaced with lucy object 42
-foo
-bar
-zoom
+42
+"Hello world"
+#t
