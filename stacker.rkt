@@ -12,7 +12,7 @@
   ;; Converts strings into datums
   ;; - format-datums creates a function list of strings and converts via format string
   ;;  (~a marks placement for argument string substitution)
-  (define src-datums (format-datums ''(handle ~a) src-lines))
+  (define src-datums (format-datums '(handle ~a) src-lines))
 
   ;; Inserts new forms into a return as the syntax object
   ;; - Uses a quasiquote (`) operator for string interpolation
