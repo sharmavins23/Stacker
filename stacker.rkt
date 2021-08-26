@@ -76,11 +76,15 @@
     ;; Branch 1 - If the argument is a number, push it to the stack
     [(number? arg) (push-stack! arg)]
 
-    ;; Branch 2 - If the argument is addition or multiplication, pop the stack twice and calculate
+    ;; Branch 2 - If the argument is addition or multiplication, calculate
     [(or (equal? + arg) (equal? - arg) (equal? * arg) (equal? / arg))
-     ;; Pop the stack twice and concatenate into postfix notation
-     (define op-result (arg (pop-stack!) (pop-stack!)))
-     ;; Push this expression back to the stack
+     
+     ;; Pop the stack twice and calculate the expression in proper order
+     (define popRHS (pop-stack!))
+     (define popLHS (pop-stack!))
+     (define op-result (arg (popLHS) (popRHS)))
+     
+     ;; Push this value back to the stack
      (push-stack! op-result)]))
 
 ;; Makes the handler function publicly available
