@@ -77,7 +77,7 @@
     [(number? arg) (push-stack! arg)]
 
     ;; Branch 2 - If the argument is addition or multiplication, pop the stack twice and calculate
-    [(or (equal? + arg) (equal? * arg))
+    [(or (equal? + arg) (equal? - arg) (equal? * arg) (equal? / arg))
      ;; Pop the stack twice and concatenate into postfix notation
      (define op-result (arg (pop-stack!) (pop-stack!)))
      ;; Push this expression back to the stack
@@ -87,4 +87,4 @@
 (provide handle)
 
 ;; Provide bindings for + and * operations from br/quicklang
-(provide + *)
+(provide + - * /)
