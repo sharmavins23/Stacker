@@ -4,11 +4,11 @@
 ;; Expected outcome:
 ;; * 3365.2 == 16826/5
 #lang reader "stacker.rkt"
-5
 26
+5
 /
-7
 17
+7
 -
 336
 *

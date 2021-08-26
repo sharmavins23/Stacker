@@ -82,7 +82,7 @@
      ;; Pop the stack twice and calculate the expression in proper order
      (define popRHS (pop-stack!))
      (define popLHS (pop-stack!))
-     (define op-result (arg (popLHS) (popRHS)))
+     (define op-result (arg popLHS popRHS))
      
      ;; Push this value back to the stack
      (push-stack! op-result)]))

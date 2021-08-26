@@ -5,6 +5,64 @@ This project houses a beginner Racket tutorial follow-along on
 
 The project is a postfix stack-based calculator compiler.
 
+## How to use
+
+Modify the lines underneath the `#lang` line in `stacker-test.rkt` with the
+expected postfix expression. Each value or operator should be on a new line.
+
+Make sure to modify the comments with the current expression too, in order to
+cross-reference the answer.
+
+## Additions and modifications
+
+The original project has been modified to include division and subtraction,
+taken from the `br/quicklang` library. Suppose the following equation is to be
+solved:
+
+```
+(26 / 5) + 336 * (17 - 7)
+```
+
+The correct postfix expression would be written as:
+
+```
+26 5 / 17 7 - 336 * +
+```
+
+Transforming this string list:
+
+```
+26
+5
+/
+17
+7
+-
+336
+*
++
+```
+
+As such, the `stacker-test.rkt` file should be:
+
+```racket
+;; Runs our postfix calculation stack
+;; Current expression:
+;; * (26 / 5) + 336 * (17 - 7)
+;; Expected outcome:
+;; * 3365.2 == 16826/5
+#lang reader "stacker.rkt"
+26
+5
+/
+17
+7
+-
+336
+*
++
+```
+
 # License TL;DR
 
 This project is distributed under the MIT license. This is a paraphrasing of a
@@ -39,4 +97,3 @@ copyright and license notice in any copy of this software/source.
     work.
 
 If you're feeling generous, give credit to me somewhere in your projects.
-
